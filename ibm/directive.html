@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+ <div ng-app="myApp">
+ <!-- directive:man -->
+ <div super class="flash"></div>
+</div>
+ <script type="text/javascript"
+src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript">
+var app = angular.module("myApp", []);
+app.directive("super", function() {
+ return {
+ restrict: "A",
+ link: function() {
+ alert("I'm working stronger")
+ }
+ }
+})
+
+app.directive("flash", function() {
+ return {
+ restrict: "C",
+ link: function() {
+ alert("I'm working faster")
+ }
+ }
+})
+app.directive("man", function() {
+ return {
+ restrict: "M",
+ link: function() {
+ alert("I'm comment")
+ }
+ }
+})
+</script>
+</body>
+</html>
