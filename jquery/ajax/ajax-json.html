@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>The jQuery Example</title>
+      <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+      
+      <script type="text/javascript" language="javascript">
+         $(document).ready(function() {
+            $("#driver").click(function(event){
+               $.getJSON('result.json', function(jd) {
+                  for(var i=0, len=jd.length; i<len; i++){
+                  $('#stage').append('<p> Name: ' + jd[i].name + '</p>');
+                  $('#stage').append('<p>Age : ' + jd[i].age+ '</p>');
+                  $('#stage').append('<p> Sex: ' + jd[i].sex+ '</p>');
+               }
+               });
+            });
+         });
+      </script>
+      
+   </head>
+   
+   <body>
+   
+      <p>Click on the button to load result.json file −</p>
+      
+      <div id="stage" style="background-color:#eee;">
+         STAGE
+      </div>
+      
+      <input type="button" id="driver" value="Load Data" />
+      
+   </body>
+   
+</html>
