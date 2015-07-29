@@ -1,0 +1,23 @@
+<html ng-app>
+<head>
+<script type="text/javascript" src="http://www.runoob.com/try/angularjs/1.2.5/angular.min.js"></script>
+<script>
+  function DeathrayMenuController($scope) {
+    $scope.menuState = {show:false };//这里换成menuState.show = false 效果就显示不出来了。以后声明变量还是放在{}里面吧
+    $scope.toggleMenu = function() {
+      $scope.menuState.show = !$scope.menuState.show;
+    };
+  }
+</script>
+</head>
+<body>
+<div ng-controller='DeathrayMenuController'>
+  <button ng-click='toggleMenu()'>Toggle Menu</button>
+  <ul ng-show='menuState.show'>
+    <li ng-click='stun()'>Stun</li>
+    <li ng-click='disintegrate()'>Disintegrate</li>
+    <li ng-click='erase()'>Erase from history</li>
+  </ul>
+</div>   
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html ng-app='ShoppingModule'>
+<head>
+<title>Your Shopping Cart</title>
+<script type="text/javascript" src="http://www.runoob.com/try/angularjs/1.2.5/angular.min.js"></script>
+<script type="text/javascript">
+    var ShoppingModule = angular.module('ShoppingModule',[]);
+
+    ShoppingModule.filter('titleCase',function() {
+        var titleCaseFilter = function(input) {
+            var words = input.split(' ');
+            for(var i=0;i<words.length;i++) {
+                words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+            }
+            return words.join(' ');
+        };
+        return titleCaseFilter;
+    });
+
+    function ShoppingController($scope) {
+        $scope.pageHeading = 'this is a test case';
+    }
+</script>
+</head>
+<body ng-controller='ShoppingController'>
+<h1>{{pageHeading | titleCase}}</h1>
+</body>
+</html>

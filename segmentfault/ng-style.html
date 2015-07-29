@@ -1,0 +1,27 @@
+<html ng-app>
+<head>
+<style type="text/css">
+    .selected {
+        background-color: lightgreen;
+    }
+</style>
+<script type="text/javascript" src="http://www.runoob.com/try/angularjs/1.2.5/angular.min.js"></script>
+<script>
+    function Restaurant($scope) {
+        $scope.list = [{name:"The Handsome",cuisine:"BBQ"},{name:"Green",cuisine:"Salads"},{name:"House",cuisine:'Seafood'}];
+
+        $scope.selectRestaurant = function(row) {
+            $scope.selectedRow = row;
+        }
+    }
+</script>
+</head>
+<body>
+<table ng-controller="Restaurant">
+    <tr ng-repeat='restaurant in list' ng-click='selectRestaurant($index)' ng-class='{selected: $index==selectedRow}'>  <!-- //css类名到布尔值的映射,当模型属性selectedRow的值等于ng-repeat中得$index时，selectd样式就会被设置到那一行 -->
+        <td>{{restaurant.name}}</td>
+        <td>{{restaurant.cuisine}}</td>
+    </tr>
+</table>
+</body>
+</html>
